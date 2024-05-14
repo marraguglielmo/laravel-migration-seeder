@@ -56,6 +56,45 @@ class TrainsTableSeeder extends Seeder
                 'is_cancelled' => true
             ],
             [
+                'company' => 'Eurostar',
+                'conductor' => 'Camillo Chiuri',
+                'departure_station' => 'Termoli',
+                'arrival_station' => 'Pescara Centrale',
+                'departure_time' => '8:25:00',
+                'arrival_time' => '10:05:00',
+                'ticket_price' => 30.00,
+                'code' => 'EU860',
+                'coaches_number' => '7',
+                'is_on_time' => true,
+                'is_cancelled' => false
+            ],
+            [
+                'company' => 'Eurostar',
+                'conductor' => 'Camillo Chiuri',
+                'departure_station' => 'Termoli',
+                'arrival_station' => 'Pescara Centrale',
+                'departure_time' => '8:25:00',
+                'arrival_time' => '10:05:00',
+                'ticket_price' => 30.00,
+                'code' => 'EU860',
+                'coaches_number' => '7',
+                'is_on_time' => true,
+                'is_cancelled' => false
+            ],
+            [
+                'company' => 'Eurostar',
+                'conductor' => 'Camillo Chiuri',
+                'departure_station' => 'Termoli',
+                'arrival_station' => 'Pescara Centrale',
+                'departure_time' => '8:25:00',
+                'arrival_time' => '10:05:00',
+                'ticket_price' => 30.00,
+                'code' => 'EU860',
+                'coaches_number' => '7',
+                'is_on_time' => true,
+                'is_cancelled' => false
+            ],
+            [
                 'company' => 'Regionale',
                 'conductor' => 'Mario Rossi',
                 'departure_station' => 'Firenze Santa Maria Novella',
@@ -63,7 +102,7 @@ class TrainsTableSeeder extends Seeder
                 'departure_time' => '14:15:00',
                 'arrival_time' => '17:00:00',
                 'ticket_price' => 28.30,
-                'code' => 'EU860',
+                'code' => 'RR777',
                 'coaches_number' => '9',
                 'is_on_time' => true,
                 'is_cancelled' => false
@@ -74,7 +113,7 @@ class TrainsTableSeeder extends Seeder
         foreach($data as $item){
             $new_train = new Train();
             $new_train->company = $item['company'];
-            $new_train->slug = Str::of($item['company'] . ' ' . $item['code'])->slug('-');
+            $new_train->slug = $this->generateSlug($item['company'],$item['code']);
             $new_train->conductor = $item['conductor'];
             $new_train->departure_station = $item['departure_station'];
             $new_train->arrival_station = $item['arrival_station'];
@@ -93,4 +132,27 @@ class TrainsTableSeeder extends Seeder
         }
 
     }
+
+    private function generateSlug($string1, $string2){
+        $slug = Str::of($string1 . ' ' . $string2)->slug('-');
+        $original_slug = $slug;
+
+        $exist = Train::where('slug', $slug)->first();
+        dump($exist);
+
+        $count = 1;
+        while($exist){
+            $slug = $original_slug . '-' . $count;
+            $exist = Train::where('slug', $slug)->first();
+            $count++;
+        }
+
+        return $slug;
+
+    }
+
+
+
+
+
 }
