@@ -2,16 +2,22 @@
     .row{
         .col{
             .ticket-card{
+                padding: 15px 25px;
+                border-radius: 5px;
+                overflow: hidden;
                 .cities{
-                    font-size: 1.4rem;
+                    font-size: 1.3rem;
                     .d_station{
                         &::after{
                             font-family: Fontawesome;
                             content: '\f178';
-                            margin-left:5px;
+                            margin-left: 7px;
                             font-weight: 300;
                         }
                     }
+                }
+                .card-line{
+                    // border-bottom: 1px solid black;
                 }
             }
         }
