@@ -38,8 +38,19 @@
                 <div class="card-line my-3 border border-1"></div>
                 {{-- card bottom --}}
                 <div class="card-bottom">
-                    <div class="price mt-3 text-end">
-                        <span>&euro;{{$train->ticket_price}}</span>
+                    <div class="d-flex justify-content-between">
+                        <div class="status d-flex flex-column">
+                            @if ($train->is_on_time)
+                            <span class="text-warning fw-semibold">In ritardo</span>
+                            @elseif ($train->is_cancelled)
+                            <span class="text-danger fw-semibold">Cancellato</span>
+                            @else
+                            <span class="text-success fw-semibold">In orario</span>
+                            @endif
+                        </div>
+                        <div class="price mt-3 text-end">
+                            <span>&euro;{{$train->ticket_price}}</span>
+                        </div>
                     </div>
 
                 </div>
