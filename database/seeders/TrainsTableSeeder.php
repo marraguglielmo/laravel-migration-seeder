@@ -113,7 +113,7 @@ class TrainsTableSeeder extends Seeder
         foreach($data as $item){
             $new_train = new Train();
             $new_train->company = $item['company'];
-            $new_train->slug = $this->generateSlug($item['company'],$item['code']);
+            $new_train->slug = $this->generateSlug($item['company'], $item['code']);
             $new_train->conductor = $item['conductor'];
             $new_train->departure_station = $item['departure_station'];
             $new_train->arrival_station = $item['arrival_station'];

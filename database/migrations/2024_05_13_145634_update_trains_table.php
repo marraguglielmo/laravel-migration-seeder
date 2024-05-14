@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('trains', function (Blueprint $table) {
-            $table->string('conductor', 20)->after('slug');
+            $table->string('conductor', 50)->after('slug');
             $table->decimal('ticket_price', 5, 2)->after('arrival_time');
         });
     }
