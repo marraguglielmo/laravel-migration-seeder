@@ -17,7 +17,7 @@ class TrainsTableSeederFaker extends Seeder
     //  passo una nuova istanza del faker come parametro del metodo run()
     public function run(Faker $faker): void
     {
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 100; $i++){
             $new_train = new Train();
             $new_train->company = $faker->words(3, true);
             $new_train->slug = $this->generateSlug($new_train->company, $new_train->code);

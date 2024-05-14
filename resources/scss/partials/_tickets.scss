@@ -1,0 +1,19 @@
+.container{
+    .row{
+        .col{
+            .ticket-card{
+                .cities{
+                    font-size: 1.4rem;
+                    .d_station{
+                        &::after{
+                            font-family: Fontawesome;
+                            content: '\f178';
+                            margin-left:5px;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
