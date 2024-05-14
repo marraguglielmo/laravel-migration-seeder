@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('slug', 40)->unique();
             $table->string('departure_station', 30);
             $table->string('arrival_station', 30);
-            $table->dateTime('departure_time');
-            $table->dateTime('arrival_time');
+            $table->time('departure_time');
+            $table->time('arrival_time');
             $table->string('code', 5);
             $table->tinyInteger('coaches_number')->unsigned();
             $table->boolean('is_on_time')->default(true);

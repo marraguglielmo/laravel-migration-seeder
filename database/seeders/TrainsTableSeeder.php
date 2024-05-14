@@ -57,6 +57,20 @@ class TrainsTableSeeder extends Seeder
                 'is_on_time' => false,
                 'is_cancelled' => true
             ],
+            [
+                'company' => 'Regionale',
+                'slug' => 'Regionale-RR777',
+                'conductor' => 'Mario Rossi',
+                'departure_station' => 'Firenze Santa Maria Novella',
+                'arrival_station' => 'Bologna Centrale',
+                'departure_time' => '14:15:00',
+                'arrival_time' => '17:00:00',
+                'ticket_price' => 28.30,
+                'code' => 'EU860',
+                'coaches_number' => '9',
+                'is_on_time' => true,
+                'is_cancelled' => false
+            ],
         ];
 
 
@@ -69,13 +83,16 @@ class TrainsTableSeeder extends Seeder
             $new_train->arrival_station = $item['arrival_station'];
             $new_train->departure_time = $item['departure_time'];
             $new_train->arrival_time = $item['arrival_time'];
-            $new_train->ticket_price = $item['arrival_time'];
-            $new_train->code = $item['ticket_price'];
-            $new_train->coaches_number = $item['code'];
-            $new_train->is_on_time = $item['coaches_number'];
-            $new_train->is_cancelled = $item['is_on_time'];
+            $new_train->ticket_price = $item['ticket_price'];
+            $new_train->code = $item['code'];
+            $new_train->coaches_number = $item['coaches_number'];
+            $new_train->is_on_time = $item['is_on_time'];
+            $new_train->is_cancelled = $item['is_cancelled'];
 
-            dump($new_train);
+            // dump($new_train);
+
+            $new_train->save();
+
         }
 
     }
