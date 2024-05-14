@@ -26,7 +26,7 @@ class TrainsTableSeederFaker extends Seeder
             $new_train->arrival_station = $faker->city();
             $new_train->departure_time = $faker->time();
             $new_train->arrival_time = $faker->time();
-            $new_train->ticket_price = $faker->randomFloat(2 ,10, 999);
+            $new_train->ticket_price = $faker->randomFloat(2 ,10, 500);
             $new_train->code = $faker->bothify('??###');
             $new_train->coaches_number = $faker->numberBetween(5, 20);
             $new_train->is_on_time =$faker->boolean();

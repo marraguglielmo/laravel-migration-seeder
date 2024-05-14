@@ -6,7 +6,7 @@
 
 @section('content')
 
-<h1 class="text-center">Tickets</h1>
+<h1 class="text-center my-3">Tickets</h1>
 
 <div class="container">
     <div class="row row-cols-2">
@@ -41,11 +41,11 @@
                     <div class="d-flex justify-content-between">
                         <div class="status d-flex flex-column">
                             @if ($train->is_on_time)
-                            <span class="text-warning fw-semibold">In ritardo</span>
+                            <span class="text-black badge bg-warning fs-6 fw-semibold py-2 px-3">In ritardo</span>
                             @elseif ($train->is_cancelled)
-                            <span class="text-danger fw-semibold">Cancellato</span>
+                            <span class="text-black badge bg-danger fs-6 fw-semibold py-2 px-3">Cancellato</span>
                             @else
-                            <span class="text-success fw-semibold">In orario</span>
+                            <span class="badge bg-success fs-6 fw-semibold py-2 px-3">In orario</span>
                             @endif
                         </div>
                         <div class="price mt-3 text-end">
