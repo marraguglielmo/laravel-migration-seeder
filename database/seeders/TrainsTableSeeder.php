@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Train;
+use Illuminate\Support\Str;
 
 class TrainsTableSeeder extends Seeder
 {
@@ -17,7 +18,6 @@ class TrainsTableSeeder extends Seeder
         $data = [
             [
                 'company' => 'Frecciarossa',
-                'slug' => 'Frecciarossa-FR152',
                 'conductor' => 'Giuseppe Rossi',
                 'departure_station' => 'Lecce',
                 'arrival_station' => 'Brindisi',
@@ -31,7 +31,6 @@ class TrainsTableSeeder extends Seeder
             ],
             [
                 'company' => 'Frecciargento',
-                'slug' => 'Frecciargento-FA412',
                 'conductor' => 'Pinco Pallino',
                 'departure_station' => 'Milano Centrale',
                 'arrival_station' => 'Roma Termini',
@@ -45,7 +44,6 @@ class TrainsTableSeeder extends Seeder
             ],
             [
                 'company' => 'Eurostar',
-                'slug' => 'Eurostar-EU860',
                 'conductor' => 'Giorgio Ponzo',
                 'departure_station' => 'Napoli Centrale',
                 'arrival_station' => 'Palermo Centrale',
@@ -59,7 +57,6 @@ class TrainsTableSeeder extends Seeder
             ],
             [
                 'company' => 'Regionale',
-                'slug' => 'Regionale-RR777',
                 'conductor' => 'Mario Rossi',
                 'departure_station' => 'Firenze Santa Maria Novella',
                 'arrival_station' => 'Bologna Centrale',
@@ -77,7 +74,7 @@ class TrainsTableSeeder extends Seeder
         foreach($data as $item){
             $new_train = new Train();
             $new_train->company = $item['company'];
-            $new_train->slug = $item['slug'];
+            $new_train->slug = Str::of($item['company'] . ' ' . $item['code'])->slug('-');
             $new_train->conductor = $item['conductor'];
             $new_train->departure_station = $item['departure_station'];
             $new_train->arrival_station = $item['arrival_station'];
